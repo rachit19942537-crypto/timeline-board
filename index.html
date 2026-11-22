@@ -1977,15 +1977,13 @@ function renderCalendar() {
         el.className = 'cal-task' + (isDone ? ' done' : '');
         el.style.setProperty('--c1', shade(item.t.color, 0));
         el.style.setProperty('--c2', shade(item.t.color, -30));
-        el.textContent = 'สิ้นสุด ' + fmtDateShort(item.t.end_date);
-        el.title = item.t.title;
+        el.textContent = item.t.title;
         el.onclick = () => openModal(item.t);
       } else {
         el.className = 'cal-task sub' + (item.sub.done ? ' done' : '');
         el.style.setProperty('--c1', shade(item.parent.color, 20));
         el.style.setProperty('--c2', shade(item.parent.color, -10));
-        el.textContent = '• ' + fmtDateShort(item.sub.end_date);
-        el.title = item.sub.title;
+        el.textContent = '• ' + item.sub.title;
         el.onclick = () => openModal(item.parent);
       }
       taskList.appendChild(el);
